@@ -1,0 +1,18 @@
+<!-- success k liye aur yadi succes exit karta hia to to alert aaye nhi to nhi  -->
+<% if (success && success.length){ %>
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+   <%} %>
+
+<!--  ye sare k sare ejs p work karega becouse humne sab flash msg ko same key diya hai aur boilerplate sab m include hai  -->
+
+
+<!-- eror k liye hai  -->
+<% if (error && error.length){ %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+   <%} %>

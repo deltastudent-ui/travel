@@ -1,0 +1,63 @@
+   <%  layout("/layouts/boilerplate") %> 
+
+
+
+<body>
+   <div class="row mt-3">
+    <div class="col-8 offset-2">
+        <h2> Edit your listings </h2>
+        <br>
+        <form action="http://localhost:8080/listings/<%= findData._id %>?_method=PUT" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+             <div class="mb-3">
+                <label for="title" class="form-label"><b>Title</b></label>
+                <input type="text" name="listing[title]" value="<%= findData.title %>" class="form-control" required>
+               <div class="valid-feedback"> looks good title</div>
+             </div>
+            <div class="mb-3">
+                <label for="description" class="form-label"><b>Description</b></label>
+                <textarea name="listing[description]" rows="4" class="form-control" required> <%= findData.description %></textarea> 
+                <div class="invalid-feedback"> please enter valid desc--</div>
+
+            </div>
+            <!-- for original image showing on edit page -->
+            <div class="mb-3">
+               original listing Image <br>
+               <img src="<%= originalImage %>" width="200" height="200" alt="Listing Image"> 
+                  <!-- <img src="<%= originalImage %>" alt="listing image"> -->
+            </div>
+             <div class="mb-3">
+                <label for="image" class="form-label"><b>Upload new Image</b></label>
+                <input type="text" name="listing[image]"  class="form-control" >
+                <div class="invalid-feedback"> please enter vaild img-link</div>
+
+             </div>
+
+             <div class="row">
+               <div class="mb-3 col-md-4">
+                <label for="price" class="form-label"><b>Price</b></label>
+                <input type="number" name="listing[price]" value="<%= findData.price %>" class="form-control" required>
+                <div class="invalid-feedback"> please enter vaild price</div>
+
+               </div>
+             
+                <div class="mb-3 col-md-8">
+                <label for="location" class="form-label"><b>Location</b></label>
+                <input type="text" name="listing[location]" placeholder="location " value="<%= findData.location %>" class="form-control" required>
+                <div class="invalid-feedback"> please enter vaild location</div>
+
+                </div>
+             </div>
+    
+             <div class="mb-3">
+                <label for="country" class="form-label"><b>Country</b></label>
+                <input type="text"name="listing[country]" value="<%= findData.country %>" class="form-control" required >
+                <div class="invalid-feedback"> please enter vaild Country</div>
+
+             </div>
+             <br>
+             <button class="btn btn-dark add-btn mt-3"> edit</button>
+             <br><br>
+        </form>
+    </div>
+   </div>
+</body>

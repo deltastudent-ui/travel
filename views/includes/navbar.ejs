@@ -1,0 +1,58 @@
+
+<style>
+  .btn-search{
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25rem;
+    padding: 0 1rem 0 1rem;
+}
+.btn-search:hover{
+
+  background-color: #fe424d;
+  color: #fff;
+}
+
+.btn-search i {
+  display: inline;
+  margin-right: 0.5rem;
+}
+.search-input{
+  border-radius: 25rem;
+  padding: 0.5rem 3rem 0.5rem 3rem;
+  font-size: 1rem;
+}
+</style>
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings">Explore</a>
+        </div>
+
+           <!-- for search btn -->
+        <form class="d-flex ms-auto " role="search" action="/listings/search">
+          <input class="form-control me-2 search-input" type="search" placeholder="Search destination" aria-label="Search" name="country" >
+          <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        </form>
+             <!-- navbar m login info add karne k liye aur kuch kuch functionality addd karne k liye-->
+
+        <div class="navbar-nav ms-auto" >
+          <a class="nav-link" href="http://localhost:8080/listings/new">Add New Listings</a>
+          <% if(!currUser){ %>  <!-- req.user ko directly access nhi kar sakte ise hume local me likhana hoga phir access karenge-->
+            <a class="nav-link " href="/signup"><b>Signup</b></a>
+            <a class="nav-link" href="/login"><b>LogIn</b></a>
+            <% } %>                                        <!-- mean agar req.user exit nhi karta to us case m y dono dhow kar do agar dikhata hia to niche wala show kar do -->
+
+            <% if(currUser){ %>
+          <a class="nav-link" href="/logout"><b>Logout</b></a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
