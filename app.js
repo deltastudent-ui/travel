@@ -2,7 +2,7 @@
 if(process.env.NODE_ENV != "production"){ // mean jab huamre envirement ki value production p nhi hai tab hume .env ko use karna hai baki cases m nhi 
   require('dotenv').config();  // hume production k time .env file nhi bhejni hai so isiliye hum y kar rahe hai
 };
-console.log(process.env.SECREATE);
+
 
 const express = require('express');
 let app = express();
@@ -39,8 +39,8 @@ const User = require("./models/user.js");
 // moongse requie 
 
 const mongoose = require('mongoose');
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-// const dburl = process.env.ATLASDB_URL;
+// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const dburl = process.env.ATLASDB_URL;
 main().then(()=>{
     console.log("connection succesfull");
 })
@@ -48,7 +48,7 @@ main().then(()=>{
 
 
 async function main() {
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(dburl);
 
 }
 
@@ -96,7 +96,7 @@ app.use(express.json());
                 // ye mongoStore dusra hai na ki require ka
 
 const store  = MongoStore.create({
-       mongoUrl: MONGO_URL,
+       mongoUrl:dburl,
        crypto:{
         secret:process.env.SECRET,
        },

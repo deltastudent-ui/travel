@@ -13,7 +13,6 @@ module.exports.isloggedIn = (req,res, next)=>{
         req.flash("error", "you must be logged in create a listings");  // is condition   ka matalb hai ki yadi humara user looged/ signup  in nhi hai to us case m y flash msg send kar dega aur login p redirect karwa dega
         return res.redirect("/login");
       }
-      console.log("isloged  is running")
       next();  // agar user authenticated hota hai to us case me next ko call kar do nhi to login p redirect kar do 
 };
 

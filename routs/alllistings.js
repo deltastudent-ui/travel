@@ -23,13 +23,12 @@ router.get("/search",(ListingControler.search));
 // router .route ka mean hai ki jo jo same path p request ja arha hai hai use sara isi m likh do ---
 router.route("/")
 .get(wrapAsync(ListingControler.index)) // listing controler ko isi tarah pass kar denge 
-.post( isloggedIn , wrapAsync(ListingControler.postRoutes));
+.post( isloggedIn ,  upload.single('image'), wrapAsync(ListingControler.postRoutes));
 
 
 
   router.get("/new", isloggedIn, wrapAsync(ListingControler.renderNewForm));
 
-  // show rout    // upload.single('listing[image]'),ye file ko ko banked m serve kar raha hai---
 
   router.route("/:id")
   .get(wrapAsync(ListingControler.showRoutes)) // new route ka get wala ahia

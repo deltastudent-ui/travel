@@ -4,10 +4,10 @@
 
     <div class="row">
         <div class="col-8 offset-2">
-        <form action="/listings" class="needs-validation" method="post" novalidate>
+        <form action="/listings" class="needs-validation" method="post"  enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" name="listing[title]" placeholder="Add a catchy title" class="form-control" required>
+                <input type="text" name="title" placeholder="Add a catchy title" class="form-control" required>
 
                 <div class="valid-feedback">Title looks good!</div>
                 <div class="invalid-feedback">write title here</div>
@@ -16,23 +16,23 @@
         
             <div class="mb-3">
                 <label for="description" class="form-label" >Description</label>
-                <textarea name="listing[description]" id="" class="form-control" required></textarea>
+                <textarea name="description" id="" class="form-control" required></textarea>
                 <div class="invalid-feedback">Please enter short Description</div>
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Upload Image</label>
-                <input type="text" name="listing[image]" placeholder="image URL" class="form-control">
+                <input type="file" name="image" placeholder="Upload Image" class="form-control">
             </div>
             <div class="row">
                 <div class="mb-3 col-md-4">
                     <label for="title" class="form-label">Price</label>
-                    <input name="listing[price]" placeholder="1200" required class="form-control">
+                    <input name="price" placeholder="1200" required class="form-control">
                     <div class="invalid-feedback">Price should be valid</div>
                 </div>
 
                 <div class="mb-3 col-md-8">
                     <label for="title" class="form-label">Country</label>
-                    <input type="text" name="listing[country]" placeholder="India" required class="form-control">
+                    <input type="text" name="country" placeholder="India" required class="form-control">
                     <div class="invalid-feedback">Country name Should be valid</div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
             <div class="mb-3">
                 <label for="location
                 " class="form-label">Location</label>
-                <input type="text" name="listing[location]" placeholder="Rajasthan"  class="form-control" required>
+                <input type="text" name="location" placeholder="Rajasthan"  class="form-control" required>
                 <div class="invalid-feedback">Location Should be valid</div>
             </div>
             
